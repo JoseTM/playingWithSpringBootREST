@@ -1,4 +1,4 @@
-package org.pecera.restcontroller.demorest;
+package org.pecera.demorest.restcontroller;
 
 import org.pecera.demorest.restDto.GreetingDto;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +15,8 @@ public class GettingController {
 
     @GetMapping("/greeting")
     public Optional<GreetingDto> greeting (@RequestParam(value = "name", defaultValue = "World") String name){
+
         return GreetingDto.newNullsafeDto(counter.incrementAndGet(), String.format(template, name));
-        /*return GreetingDto.newNullsafeDto(counter.incrementAndGet(), null));*/
     }
 
 }
