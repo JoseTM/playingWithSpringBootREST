@@ -5,5 +5,8 @@ import org.pecera.demorest.model.Country;
 import java.util.List;
 
 public interface CountryService {
-    public List<Country> findAll();
+
+    List<Country> findAll();
+
+    List<Country> findByNameFirstLetter(char firstLetter);
 }

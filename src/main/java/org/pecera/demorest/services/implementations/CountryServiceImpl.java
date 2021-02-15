@@ -15,13 +15,20 @@ public class CountryServiceImpl implements CountryService {
     @Autowired
     private CountryRepository countryRepository;
 
+
+    @Override
     public List<Country> findAll(){
-        List<Country> countries = new ArrayList<Country>();
+        List<Country> countries = new ArrayList<>();
         countryRepository.findAll().forEach(
-                country -> countries.add(country)
+                countries::add
                 );
 
         return countries;
+    }
+
+    @Override
+    public List<Country> findByNameFirstLetter(char firstLetter){
+       return countryRepository.findContriesWithNameStartingWithLetter(firstLetter);
     }
 
 }

@@ -10,18 +10,22 @@ public class CountryDtoFactory {
 
 
     public static CountryDto newDtoFrom(Country country){
-        return  CountryDto.newDto(country.getCountryId(), country.getCountryName());
+        return  CountryDto.newDto(country.getCountryId(), country.getCountry());
     }
 
     public static List<CountryDto> newDtosFrom(List<Country> countries){
-        List <CountryDto> countriesDtos = new ArrayList<CountryDto>();
-        countries.stream().forEach((
+        List <CountryDto> countriesDtos = new ArrayList<>();
+        countries.forEach((
                country -> countriesDtos.add(
-                                CountryDto.newDto(country.getCountryId(),country.getCountryName()
+                                CountryDto.newDto(country.getCountryId(),country.getCountry()
                                 ))
                )) ;
 
       return countriesDtos;
+    }
+
+    public static List<CountryDto> newDtosEmpty(){
+        return new ArrayList<>();
     }
 
 }

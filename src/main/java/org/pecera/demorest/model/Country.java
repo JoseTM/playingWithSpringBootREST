@@ -24,7 +24,7 @@ public class Country {
     }
 
     @Column(name = "country")
-    public String getCountryName() {
+    public String getCountry() {
         return country;
     }
 
